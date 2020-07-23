@@ -1,30 +1,22 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Cardápio</ion-title>
+    <ion-title>Categorias</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
-  <ion-list>
-    <ion-item *ngFor="let product of products">
-      <ion-thumbnail slot="start">
-        <ion-img [src]="product.photoUrl"></ion-img>
-      </ion-thumbnail>
-      <ion-label>
-        <h1>{{product.name}}</h1>
-        <small>{{product.category}}</small>
-        <p class="ion-text-wrap">{{product.description}}</p>
 
-        <ion-text color="success">
-          <p>{{product.price | currency: 'BRL'}}</p>
-        </ion-text>
+  <ion-list>
+    <ion-item *ngFor="let category of categories">
+
+      <ion-label>
+        <h1>{{category.name}}</h1>
 
         <!-- Action buttons-->
         <ion-grid>
           <ion-row>
             <ion-col>
-              <ion-button expand="block" color="secondary" (click)="remove(product)" >
+              <ion-button expand="block" color="secondary" (click)="remove(category)" >
                 <ion-icon slot="start" name="trash"></ion-icon>
                 Remover
               </ion-button>
@@ -44,7 +36,7 @@
   </ion-list>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="primary">
-    <ion-fab-button [routerLink]="['/cardapio/new']">
+    <ion-fab-button [routerLink]="['new']">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
